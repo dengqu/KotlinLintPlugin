@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="361045a6-7772-4fd5-ae80-46ab101f807b" name="Default Changelist" comment="创建项目" />
+    <list default="true" id="361045a6-7772-4fd5-ae80-46ab101f807b" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -80,6 +80,17 @@
               <item name="KotlinLintPlugin" type="b2602c69:ProjectViewProjectNode" />
               <item name="KotlinLintPlugin" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
+            <path>
+              <item name="KotlinLintPlugin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="KotlinLintPlugin" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="doc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="KotlinLintPlugin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="KotlinLintPlugin" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="doc" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -96,6 +107,11 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/doc/images" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/doc/images" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -140,12 +156,20 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565775660992</updated>
-      <workItem from="1565775665165" duration="1004000" />
+      <workItem from="1565775665165" duration="1343000" />
     </task>
+    <task id="LOCAL-00001" summary="创建项目">
+      <created>1565777192063</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1565777192063</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1004000" />
+    <option name="totallyTimeSpent" value="1343000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="710" extended-state="0" />
