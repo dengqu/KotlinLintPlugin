@@ -1,0 +1,61 @@
+calcNextprintlnprinttanhasinhabsroundwithSignlnnextTowardscoshatanhln1pfloorlognextUplog2sinpowacossqrt
+roundToIntsinhatanasinsigntancosroundToLongtruncateacoshnextDownceilhypotexplog10expm1atan2isSurrogatefromLiteralcontainsMatchInescapeReplacementfindAllmatchEntireescapetoDouble
+capitalizenativeLastIndexOfdecapitalizeisLowSurrogatetoFloatOrNullStringtoUpperCasetoLowerCasedigitOfisWhitespaceregionMatchesisBlankisHighSurrogate	toBooleantoFloatnativeIndexOftoDoubleOrNull
+checkRadixreindentreplaceIndent
+trimIndent
+trimMarginindentWidthreplaceIndentByMarginprependIndentgetIndentFunctiontoUByteOrNulltoUShortOrNulltoUIntOrNulltoULongOrNullsubstringBeforesplitToSequencereplaceRangeremovePrefixsubstringAftercommonSuffixWithlinesremoveSuffixtrimEndmatchesremoveSurroundingsplitreplaceBeforeisNullOrBlankrangesDelimitedByremoveRange
+isNotBlanksubstringAfterLastreplace	substring
+indexOfAnylineSequence
+startsWithlastIndexOfAnypadStartcommonPrefixWithreplaceBeforeLastreplaceAfterLast	trimStartreplaceAfterreplaceFirst	findAnyOfregionMatchesImplpadEndendsWithfindLastAnyOftrimhasSurrogatePairAtifBlanksubstringBeforeLast
+component8
+component9
+component7
+component6component10subSequencebuildStringappendappendElementtoRegexchunkedSequencetoLongOrNulltoByteOrNulltoIntOrNulltoShortOrNullnumberFormatErrorboundsErrorMessagefastLog2RandomtakeUpperBitsdefaultPlatformRandomcheckRangeBoundsdoubleFromParts	nextFloat
+nextDoublenextBooleannextLong	nextBytes
+nextUBytescheckULongRangeBoundscheckUIntRangeBoundsnextBitsnextIntcheckStepIsPositivecoerceAtLeastdownTotoIntExactOrNulltoLongExactOrNullstepuntiltoShortExactOrNulltoByteExactOrNullcoerceAtMostcoerceInfromClosedRangelessThanOrEqualsgetProgressionLastElementdifferenceModuloreturnsreturnsNotNullcallsInPlaceimpliescontractgenerateSequenceconstrainOnceemptySequenceSequence
+sequenceOfsequencecreateCoroutineUnintercepted#startCoroutineUninterceptedOrReturncreateCoroutineUncheckedinterceptedsuspendCoroutineOrReturn%suspendCoroutineUninterceptedOrReturn	getResultbuildSequencebuildIteratorprocessBareContinuationResumenextNotReadyexceptionalStateyieldAllyieldresumeWithExceptioncreateCoroutinesuspendCoroutineresumeContinuationstartCoroutinesize
+resumeWithinterceptContinuationreleaseInterceptedContinuationminusKeyvetoable
+observablenotNullafterChangebeforeChangelinkedSetOf	hashSetOfoptimizeReadOnlySetemptySetmutableSetOfsetOfcontentDeepToStringInternalcontentDeepToStringImplcontentDeepEqualsImplkeyOfsourceIteratortoPair	hashMapOftoMutableMapemptyMap
+filterKeysmapOfmapCapacityfilterValueslinkedMapOfmapValuesTo	mapKeysTooptimizeReadOnlyMapmutableMapOfmapKeystoMapgetOrElseNullable	mapValuesgetOrPutensureCapacity
+trimToSizereadResolveforwardisFullremoveFirstreduceTofoldToeachCountTo	aggregateaggregateToentryEqualsentryHashCodeentryToStringcontainsEntryimplFindEntryasUIntArray
+asIntArraytoUIntArraytoUShortArrayasByteArraytoUByteArraytoULongArrayasUShortArrayasShortArrayasLongArrayasULongArrayasUByteArrayunorderedHashCode	setEqualssafeToConvertToSetconvertToSetForSetOperationWithcollectionSizeOrNullconvertToSetForSetOperationflattenunzipIterablecollectionSizeOrDefaultcheckPositionIndexcheckElementIndexcheckRangeIndexesorderedEqualsorderedHashCoderemoveAtpreviousIndex	nextIndexprevioushasPreviousthrowIndexOverflowmutableListOfMutableListthrowCountOverflowifEmptyoptimizeReadOnlyListarrayListOfList
+rangeCheckcheckIndexOverflowbinarySearchisNullOrEmptylistOfNotNull	emptyListlistOfcheckCountOverflowasCollectionbinarySearchBymovecopyToArrayImplfill	eachCounttoSingletonMapOrSelfarrayOfNullstoSingletonMapcopyToArrayOfAnyorEmptysetValuereversePositionIndexreverseElementIndex
+asReversedwindowedSequencewindowedIteratorcheckWindowSizeSteptryToComputeNextdonecomputeNextsetNextonEachassociateWithzipWithNextassociateWithTochunkedminusElementwindowednextwithDefaulttoArraysubListlistIteratorfilterInPlaceminusAssignretainNothing
+plusAssignshuffleshuffledcountminWithtoSetfirstfirstOrNullcopyIntosortedBy
+sortedWithmapIndexedNotNulltoDoubleArray	withIndexcontentDeepToString	filterNotmaxsubtractfiltermapTotoTypedArraysumByunionfilterNotNullTocontentDeepHashCode	intersect
+asSequence	flatMapToassociateBysingleOrNull	dropWhileplusElementtoFloatArrayelementAtOrNull
+mapNotNulltoMutableSetfind	toHashSetsortedArrayWithtoShortArrayjoinToStringdistinctsortedArrayreversesortByDescending	foldRightsortedArrayDescendingforEach
+distinctBy	groupByTosorttoCharArray
+toIntArrayminfilterTosortByasListmaxBy	partitionforEachIndexed
+asIterabledropLastreduceRightIndexedtoBooleanArraytakeLastfilterIndexedtoMutableListsinglemapIndexedNotNullTogroupByfilterNotToassociateTo
+sliceArrayslicefoldIndexed
+component5
+component4requireNoNullsminBy	associatefindLastreduceIndexedzipindexOfLastcontentHashCodemapIndexedTotoLongArrayfilterNotNull
+isNotEmptysortDescendingrandomfilterIsInstanceTotakeanycontentEqualsreversedArraylastIndexOfsumByDoublecopyOfRangefoldRightIndexedmaxWithassociateByTo
+mapIndexedindexOfFirstdropLastWhiletoCollectiondropnoneindexOfcontentToStringsumcopyOfsortedfilterIsInstancesortedDescending
+lastOrNull	elementAtlastfilterIndexedTo
+groupingBysortedByDescendingmapNotNullTotoByteArrayallelementAtOrElsesortWithtakeLastWhilejoinToflatMapreduceRightaverage	takeWhilecontentDeepEqualsreduceadd	removeAll	retainAlladdAllremovecontainsValueputcontainsKeycleargetOrImplicitDefaultputAllmaxOfminOfcompareValuesBycompareValues
+nullsFirstthenDescending	compareBycompareByDescendingthenByDescendingnaturalOrderthencompareValuesByImplthenByreverseOrderthenComparator	nullsLastreversedlazyOfgetValueshlshr	getOrNullsuccessfailureexceptionOrNull
+component3
+component2
+component1	onSuccessmapCatchinggetOrDefaultfoldrecoverCatching	getOrElse	onFailure
+getOrThrowthrowOnFailurerecovermaprunCatchingcreateFailuretotoListrangeTotoBytetimestoLongtoUInttoUShortdecinvremtoInttoShortxorplusdivtoUBytetoULongandminusorinc
+ComparatorisNaN	toRawBits
+isInfinitelazysynchronizedtoBitsisFinitefromBitssuspendnextUIntcomparetakeIf
+takeUnlessapplyletrepeatalsowithrunTODO	nextUByte	nextULong	UIntArrayuintArrayOfcontainssethasNextisEmptygetiterator
+nextUShortcontainsAll
+UByteArrayubyteArrayOf
+ULongArrayulongArrayOf	compareToequalshashCode	versionOf	isAtLeastUShortArrayushortArrayOfwriteReplaceerrorcheckNotNullrequireNotNullcheckrequireulongDivideulongCompareulongRemainderuintRemainderulongToStringuintCompare
+uintDivideisInitializedtoStringonCreateaddition_isCorrectuseAppContextnextCharensureItemIteratorflipBack	tryDecodeendsWithLineSeparatoroffloadPrefixToreadLinedeleteRecursivelycopyRecursivelytoComponentsrelativeToOrNullrelativeToOrSelftoRelativeStringOrNullwalkTopDown
+writeBytescreateTempFileresolvetoRelativeStringforEachBlockwalkwalkBottomUpappendBytesresolveSiblingoutputStream	normalizegetRootLength	writeTextcreateTempDir
+relativeTo
+appendTextprintWriterconstructMessageinputStreambyteInputStreambufferedWriterbufferedReaderwriterbufferedreaderuseLines	readBytesreadText	readLinescopyToforEachLineonFailonLeavegotoNextdirectoryStateonEntermaxDepthsubPathmonitorExitmonitorEntertoArrayImplcollectionToArraygetSize	addSpreadnotSupportedErrorgetOwner	isArrayOfIEEEremisJavaIdentifierStartisJavaIdentifierPartisUpperCaseisLetterOrDigitisISOControl	isDefinedtoTitleCaseisLetterisIdentifierIgnorableisTitleCaseisDigitisLowerCaseensureUnicodeCasefindNextrangefromIntcharsetvalueOftoBigDecimalOrNulloffsetByCodePointstoBigIntegerOrNullformatscreenFloatValueinternappendln	toPatterncodePointBeforecodePointAtcodePointCountsetSeedasJavaRandomasKotlinRandomexitProcessmeasureNanoTimemeasureTimeMillis
+isInstancecallBycallgetDelegatecontravariant	covariant	invariantgetMatchResultNamedGroupgetJavaVersionapiVersionIsAtLeastcastToBaseTypecloseFinallyusewritewithLockreadtimer	timerTaskschedulescheduleAtFixedRatefixedRateTimergetOrSetthreadboxFloatboxLongboxChar
+boxBooleanboxShortboxByte	boxDoubleboxIntawait
+runSuspendprobeCoroutineResumedprobeCoroutineCreatedprobeCoroutineSuspendedgetLabelcheckDebugMetadataVersiongetSpilledVariableFieldMappinggetDebugMetadataAnnotationgetStackTraceElementImpl
+buildCachegetModuleNamereleaseInterceptedinvokeSuspend"createCoroutineFromSuspendFunctionnormalizeContinuationinterceptContinuationIfNeededdoResumecreatetoExperimentalCoroutineContexttoExperimentalSuspendFunctiontoContinuation%toExperimentalContinuationInterceptortoCoroutineContexttoExperimentalContinuationtoContinuationInterceptorinvokebuildContinuationByInvokeCallgetStackTraceElement3hackToForceKotlinBuiltinsForKotlinCoroutinesPackagesortedSetOfmapValuesInPlacetoPropertiessortedMapOftoSortedMapnextByte	nextShorttoBigDecimaltoBigIntegercontentDeepHashCodeImpltoSortedSetcopyOfRangeImplcopyOfRangeToIndexCheckaddSuppressedprintStackTraceassertshortArrayOf
+intArrayOf
+emptyArrayclonelongArrayOfenumValueOfmodarrayOfushrcharArrayOfdoubleArrayOfbyteArrayOfbooleanArrayOffloatArrayOf	unaryPlustoChar
+unaryMinus
+enumValuesnotprepareNextinitialValuesaytestahelloLog
+getVersion                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                

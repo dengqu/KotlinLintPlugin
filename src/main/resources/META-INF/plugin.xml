@@ -1,0 +1,52 @@
+<idea-plugin>
+    <id>com.zhenai.lib.ZhenaiLintPlugin</id>
+    <name>Zhenai Android Coding Guidelines</name>
+    <version>1.0.9</version>
+    <vendor email="scaudengqu@163.com" url="https://github.com/dengqu/ZhenaiLintPlugin.git">zhenai</vendor>
+    <description><![CDATA[
+      This is a can help developers to quickly find code problem<br>
+      <em>What's the problem can be feedback on my email</em>
+    ]]></description>
+    <change-notes>
+        <![CDATA[
+      1.0.8
+      <ul>
+      add Log Check rule<br>
+      add Companion Object Check rule<br>
+      </ul>
+      1.0.7
+      <ul>
+      add Empty Comment Check rule<br>
+      add Interface Method Comment Check rule<br>
+      </ul>
+      1.0.6
+      <ul>
+      add todo rule<br>
+      add UnusePrivateMethod rule<br>
+      </ul>
+      1.0.5
+      <ul>
+      自解析kotlin<br>
+      </ul>
+      1.0.4
+      <ul>
+      fix the if block rule bug<br>
+      </ul>
+      1.0.3
+      <ul>
+      Remove useless comments<br>
+      </ul>
+      1.0.2
+      <ul>
+      update idea-version since-build 172.0<br>
+      </ul>
+      1.0.0
+      <ul>
+      Build the plugin first time<br>
+      Support the kotlin language<br>
+      </ul>
+    ]]>
+    </change-notes>
+    <idea-version since-build="183.0"/>
+    <depends optional="true" config-file="zhenai.xml">com.intellij.modules.java</depends>
+</idea-plugin>

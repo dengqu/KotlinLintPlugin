@@ -1,0 +1,25 @@
+<application>
+  <component name="RecentProjectsManager">
+    <option name="recentPaths">
+      <list>
+        <option value="$USER_HOME$/Downloads/workplace/android/AllDemo" />
+      </list>
+    </option>
+    <option name="pid" value="" />
+    <option name="additionalInfo">
+      <map>
+        <entry key="$USER_HOME$/Downloads/workplace/android/AllDemo">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="IC-191.7141.44" />
+              <option name="productionCode" value="IC" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1565769560050" />
+              <option name="buildTimestamp" value="1557230353144" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</application>

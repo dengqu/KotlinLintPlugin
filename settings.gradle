@@ -1,0 +1,6 @@
+rootProject.name = 'ZhenaiLintPlugin'
+include 'core'
+include 'checks'
+include 'client'
+
+

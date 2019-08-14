@@ -1,0 +1,17 @@
+<application>
+  <component name="UpdatesConfigurable">
+    <option name="CHECK_NEEDED" value="false"/>
+    <enabledExternalComponentSources>
+      <item value="Android SDK"/>
+    </enabledExternalComponentSources>
+    <option name="externalUpdateChannels">
+      <map>
+        <entry key="Android SDK" value="Stable Channel"/>
+      </map>
+    </option>
+    <knownExternalComponentSources>
+      <item value="Android SDK"/>
+    </knownExternalComponentSources>
+    <option name="THIRD_PARTY_PLUGINS_ALLOWED" value="true"/>
+  </component>
+</application>
