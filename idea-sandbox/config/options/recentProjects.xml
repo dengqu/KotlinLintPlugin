@@ -5,6 +5,12 @@
         <option value="$USER_HOME$/Downloads/workplace/android/AllDemo" />
       </list>
     </option>
+    <option name="openPaths">
+      <list>
+        <option value="$USER_HOME$/Downloads/workplace/android/AllDemo" />
+      </list>
+    </option>
+    <option name="lastPath" value="$USER_HOME$/Downloads/workplace/android/AllDemo" />
     <option name="pid" value="" />
     <option name="additionalInfo">
       <map>
@@ -14,8 +20,8 @@
               <option name="build" value="IC-191.7141.44" />
               <option name="productionCode" value="IC" />
               <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
-              <option name="projectOpenTimestamp" value="1565769560050" />
-              <option name="buildTimestamp" value="1557230353144" />
+              <option name="projectOpenTimestamp" value="1565775893207" />
+              <option name="buildTimestamp" value="1557230376459" />
             </RecentProjectMetaInfo>
           </value>
         </entry>
