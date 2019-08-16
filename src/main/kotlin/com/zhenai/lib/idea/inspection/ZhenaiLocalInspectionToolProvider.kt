@@ -1,18 +1,3 @@
-/*
- * Copyright 1999-2017 Alibaba Group.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package com.zhenai.lib.idea.inspection
 
 import com.intellij.codeInspection.InspectionToolProvider
@@ -32,10 +17,10 @@ import org.sonar.api.internal.google.common.collect.Lists
 import javax.annotation.Generated
 
 /**
- * @author caikang
+ * @author dengqu
  * @date 2016/12/16
  */
-class AliLocalInspectionToolProvider : InspectionToolProvider {
+class ZhenaiLocalInspectionToolProvider : InspectionToolProvider {
 
     override fun getInspectionClasses(): Array<Class<*>> {
         return CLASS_LIST.toTypedArray()
@@ -52,7 +37,7 @@ class AliLocalInspectionToolProvider : InspectionToolProvider {
     }
 
     companion object {
-        private val LOGGER = Logger.getInstance(AliLocalInspectionToolProvider::class.java)
+        private val LOGGER = Logger.getInstance(ZhenaiLocalInspectionToolProvider::class.java)
         val ruleNames: MutableList<String> = Lists.newArrayList<String>()!!
         private val CLASS_LIST = Lists.newArrayList<Class<*>>()
         val javaShouldInspectChecker = object : ShouldInspectChecker {
@@ -86,7 +71,7 @@ class AliLocalInspectionToolProvider : InspectionToolProvider {
         }
 
         init {
-            Thread.currentThread().contextClassLoader = AliLocalInspectionToolProvider::class.java.classLoader
+            Thread.currentThread().contextClassLoader = ZhenaiLocalInspectionToolProvider::class.java.classLoader
             initKotlinInspection()
         }
 

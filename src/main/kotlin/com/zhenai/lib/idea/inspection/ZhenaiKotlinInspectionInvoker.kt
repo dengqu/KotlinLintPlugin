@@ -1,18 +1,3 @@
-/*
- * Copyright 1999-2017 Alibaba Group.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package com.zhenai.lib.idea.inspection
 
 import com.zhenai.lib.idea.config.ZhenaiConfig
@@ -36,10 +21,10 @@ import org.sonar.api.internal.google.common.collect.Lists
 import java.util.concurrent.TimeUnit
 import com.zhenai.lib.core.converter.KotlinConverter
 /**
- * @author caikang
+ * @author dengqu
  * @date 2016/12/13
  */
-class AliKotlinInspectionInvoker(
+class ZhenaiKotlinInspectionInvoker(
     private val psiFile: PsiFile,
     private val manager: InspectionManager,
     private val rule: SIssue
@@ -91,7 +76,7 @@ class AliKotlinInspectionInvoker(
     }
 
     companion object {
-        private lateinit var invokers: Cache<FileRule, AliKotlinInspectionInvoker>
+        private lateinit var invokers: Cache<FileRule, ZhenaiKotlinInspectionInvoker>
 
         val smartFoxConfig = ServiceManager.getService(ZhenaiConfig::class.java)!!
 
@@ -107,7 +92,7 @@ class AliKotlinInspectionInvoker(
                 return null
             }
             val virtualFile = psiFile.virtualFile ?: return null
-            val invoker = AliKotlinInspectionInvoker(psiFile, manager, rule)
+            val invoker = ZhenaiKotlinInspectionInvoker(psiFile, manager, rule)
             invoker.doInvoke()
             return invoker.getRuleProblems(isOnTheFly)
         }
@@ -117,7 +102,7 @@ class AliKotlinInspectionInvoker(
         }
 
         fun refreshFileViolationsCache(file: VirtualFile) {
-            AliLocalInspectionToolProvider.ruleNames.forEach {
+            ZhenaiLocalInspectionToolProvider.ruleNames.forEach {
                 doInvokeIfPresent(file.canonicalPath!!, it)
             }
         }
@@ -126,7 +111,7 @@ class AliKotlinInspectionInvoker(
             invokers = CacheBuilder.newBuilder().maximumSize(500).expireAfterWrite(
                 expireTime,
                 TimeUnit.MILLISECONDS
-            ).build<FileRule, AliKotlinInspectionInvoker>()!!
+            ).build<FileRule, ZhenaiKotlinInspectionInvoker>()!!
         }
     }
 

@@ -18,8 +18,7 @@ package com.zhenai.lib.idea.action
 import com.zhenai.lib.idea.compatible.inspection.InspectionProfileService
 import com.zhenai.lib.idea.compatible.inspection.Inspections
 import com.zhenai.lib.idea.ep.InspectionActionExtensionPoint
-import com.zhenai.lib.idea.i18n.P3cBundle
-import com.zhenai.lib.idea.inspection.AliBaseInspection
+import com.zhenai.lib.idea.inspection.ZhenaiBaseInspection
 import com.zhenai.lib.idea.util.NumberConstants
 import com.intellij.analysis.AnalysisScope
 import com.intellij.analysis.AnalysisUIOptions
@@ -59,7 +58,7 @@ class ZhenaiInspectionAction : AnAction() {
 
         val managerEx = InspectionManager.getInstance(project) as InspectionManagerEx
         val toolWrappers = Inspections.aliInspections(project) {
-            it.tool is AliBaseInspection
+            it.tool is ZhenaiBaseInspection
         }
         val psiElement = e.getData<PsiElement>(DataKeys.PSI_ELEMENT)
         val psiFile = e.getData<PsiFile>(DataKeys.PSI_FILE)

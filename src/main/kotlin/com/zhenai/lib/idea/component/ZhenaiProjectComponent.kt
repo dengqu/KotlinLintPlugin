@@ -24,7 +24,7 @@ import com.intellij.openapi.vfs.VirtualFileEvent
 import com.intellij.openapi.vfs.VirtualFileListener
 import com.intellij.openapi.vfs.VirtualFileManager
 import com.intellij.psi.PsiManager
-import com.zhenai.lib.idea.inspection.AliKotlinInspectionInvoker
+import com.zhenai.lib.idea.inspection.ZhenaiKotlinInspectionInvoker
 
 /**
  * @author caikang
@@ -48,7 +48,7 @@ class ZhenaiProjectComponent(
                 }
                 PsiManager.getInstance(project).findFile(event.file) ?: return
                 if (!zhenaiConfig.ruleCacheEnable) {
-                    AliKotlinInspectionInvoker.refreshFileViolationsCache(event.file)
+                    ZhenaiKotlinInspectionInvoker.refreshFileViolationsCache(event.file)
 
                 }
 

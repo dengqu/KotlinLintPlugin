@@ -15,15 +15,30 @@
  */
 package com.zhenai.lib.idea.i18n
 
+import com.intellij.CommonBundle
 import com.zhenai.lib.idea.config.ZhenaiConfig
 import com.zhenai.lib.common.util.getService
+import com.zhenai.lib.core.slang.utils.I18nResources
+import java.util.*
 
 /**
  *
  *
- * @author caikang
+ * @author dengqu
  * @date 2017/06/20
  */
 object P3cBundle {
     private val p3cConfig = ZhenaiConfig::class.java.getService()
+    private val resourceBundle = ResourceBundle.getBundle(
+        "messages.P3cBundle",
+        Locale(p3cConfig.locale), I18nResources.XmlControl()
+    )
+
+    fun getMessage(key: String): String {
+        return resourceBundle.getString(key).trim()
+    }
+
+    fun message(key: String, vararg params: Any): String {
+        return CommonBundle.message(resourceBundle, key, *params).trim()
+    }
 }

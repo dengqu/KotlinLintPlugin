@@ -1,18 +1,3 @@
-/*
- * Copyright 1999-2017 Alibaba Group.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package com.zhenai.lib.idea.inspection
 
 import com.intellij.codeHighlighting.HighlightDisplayLevel
@@ -28,10 +13,10 @@ import org.jetbrains.annotations.Nls
 
 /**
  *
- * @author caikang
+ * @author dengqu
  * @date 2017/07/19
  */
-class DelegateLocalInspectionTool : LocalInspectionTool(), AliBaseInspection {
+class DelegateLocalInspectionTool : LocalInspectionTool(), ZhenaiBaseInspection {
 
     private val forJavassist: LocalInspectionTool? = null
 
@@ -58,7 +43,7 @@ class DelegateLocalInspectionTool : LocalInspectionTool(), AliBaseInspection {
     }
 
     override fun ruleName(): String {
-        return (localInspectionTool as AliBaseInspection).ruleName()
+        return (localInspectionTool as ZhenaiBaseInspection).ruleName()
     }
 
     @Nls
@@ -72,7 +57,7 @@ class DelegateLocalInspectionTool : LocalInspectionTool(), AliBaseInspection {
 
     @Nls
     override fun getGroupDisplayName(): String {
-        return AliBaseInspection.GROUP_NAME
+        return ZhenaiBaseInspection.GROUP_NAME
     }
 
     override fun isEnabledByDefault(): Boolean {
@@ -91,7 +76,7 @@ class DelegateLocalInspectionTool : LocalInspectionTool(), AliBaseInspection {
         holder: ProblemsHolder, isOnTheFly: Boolean,
         session: LocalInspectionToolSession
     ): PsiElementVisitor {
-        if (!AliLocalInspectionToolProvider.javaShouldInspectChecker.shouldInspect(holder.file)) {
+        if (!ZhenaiLocalInspectionToolProvider.javaShouldInspectChecker.shouldInspect(holder.file)) {
             return PsiElementVisitor.EMPTY_VISITOR
         }
         return localInspectionTool.buildVisitor(holder, isOnTheFly, session)

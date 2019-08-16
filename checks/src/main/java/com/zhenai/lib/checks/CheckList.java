@@ -47,6 +47,7 @@ public class CheckList {
                 new CommentedCodeCheck(),
                 new EmptyBlockCheck(),
                 new DuplicateBranchCheck(),
+                new LazyCheck(),
                 new EmptyFunctionCheck());
     }
 

@@ -1,5 +1,5 @@
 /*
- * Copyright 1999-2017 Alibaba Group.
+ * Copyright 1999-2017 Zhenai Group.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@ package com.zhenai.lib.idea.vcs
 import com.zhenai.lib.idea.action.ZhenaiInspectionAction
 import com.zhenai.lib.idea.compatible.inspection.Inspections
 import com.zhenai.lib.idea.config.ZhenaiConfig
-import com.zhenai.lib.idea.inspection.AliBaseInspection
+import com.zhenai.lib.idea.inspection.ZhenaiBaseInspection
 import com.zhenai.lib.common.util.BalloonNotifications
 import com.intellij.analysis.AnalysisScope
 import com.intellij.codeInspection.InspectionManager
@@ -67,7 +67,7 @@ class AliCodeAnalysisCheckinHandler(
         private val myProject: Project,
         private val myCheckinPanel: CheckinProjectPanel
 ) : CheckinHandler() {
-    private val dialogTitle = "Alibaba Code Analyze"
+    private val dialogTitle = "Zhenai Code Analyze"
     private val cancelText = "&Cancel"
     private val commitText = "&Commit Anyway"
     private val waitingText = "Wait"
@@ -75,7 +75,7 @@ class AliCodeAnalysisCheckinHandler(
     val log = Logger.getInstance(javaClass)
 
     override fun getBeforeCheckinConfigurationPanel(): RefreshableOnComponent? {
-        val checkBox = NonFocusableCheckBox("Alibaba Code Guidelines")
+        val checkBox = NonFocusableCheckBox("Zhenai Code Guidelines")
         return object : RefreshableOnComponent {
             override fun getComponent(): JComponent {
                 val panel = JPanel(BorderLayout())
@@ -141,7 +141,7 @@ class AliCodeAnalysisCheckinHandler(
         val managerEx = InspectionManager.getInstance(project) as InspectionManagerEx
         val analysisScope = AnalysisScope(project,
                 ArrayList(Arrays.asList(*virtualFiles)))
-        val tools = Inspections.aliInspections(project) { it.tool is AliBaseInspection }
+        val tools = Inspections.aliInspections(project) { it.tool is ZhenaiBaseInspection }
         ZhenaiInspectionAction.createContext(tools, managerEx, null, false)
                 .doInspections(analysisScope)
     }
@@ -157,7 +157,7 @@ class AliCodeAnalysisCheckinHandler(
                 object : Task.Modal(myProject, VcsBundle.message("checking.code.smells.progress.title"), true) {
                     override fun run(progress: ProgressIndicator) {
                         try {
-                            val tools = Inspections.aliInspections(project) { it.tool is AliBaseInspection }
+                            val tools = Inspections.aliInspections(project) { it.tool is ZhenaiBaseInspection }
                             val inspectionManager = InspectionManager.getInstance(project)
                             val psiManager = PsiManager.getInstance(project)
                             val count = AtomicInteger(0)
@@ -171,7 +171,7 @@ class AliCodeAnalysisCheckinHandler(
                                     return@Computable tools.any {
                                         progress.checkCanceled()
                                         val tool = it.tool as LocalInspectionTool
-                                        val aliTool = tool as AliBaseInspection
+                                        val aliTool = tool as ZhenaiBaseInspection
                                         progress.text2 = aliTool.ruleName()
                                         val problems = tool.processFile(psiFile, inspectionManager)
                                         problems.size > 0

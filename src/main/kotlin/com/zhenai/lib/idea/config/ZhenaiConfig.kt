@@ -18,6 +18,7 @@ package com.zhenai.lib.idea.config
 import com.intellij.configurationStore.APP_CONFIG
 import com.intellij.openapi.components.PersistentStateComponent
 import com.intellij.openapi.components.State
+import com.intellij.openapi.components.Storage
 import com.intellij.util.xmlb.XmlSerializerUtil
 import java.util.Locale
 
@@ -27,14 +28,7 @@ import java.util.Locale
  * @author caikang
  * @date 2017/06/19
  */
-@State(
-    name = "ZhenaiConfig",
-    storages = arrayOf(
-        com.intellij.openapi.components.Storage(
-            file = "$APP_CONFIG/zhenai.xml"
-        )
-    )
-)
+@State(name = "ZhenaiConfig", storages = [Storage(file = "smartfox/zhenai.xml")])
 class ZhenaiConfig : PersistentStateComponent<ZhenaiConfig> {
     override fun loadState(state: ZhenaiConfig) {
         if (state == null) {

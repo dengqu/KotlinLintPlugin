@@ -30,12 +30,11 @@ import com.zhenai.lib.core.slang.api.SIssue
 import com.zhenai.lib.checks.CheckList
 
 /**
- * @author caikang
+ * @author dengqu
  * @date 2016/12/16
  */
-class AliKotlinInspection(private val ruleName: String) : LocalInspectionTool(),
-    AliBaseInspection,
-    PmdRuleInspectionIdentify {
+class ZhenaiKotlinInspection(private val ruleName: String) : LocalInspectionTool(),
+    ZhenaiBaseInspection {
     override fun manualBuildFix(psiElement: PsiElement, isOnTheFly: Boolean): LocalQuickFix? {
         return QuickFixes.getQuickFix(ruleName, isOnTheFly)
     }
@@ -67,7 +66,7 @@ class AliKotlinInspection(private val ruleName: String) : LocalInspectionTool(),
         if (file == null || !file.virtualFile.canonicalPath!!.endsWith(".kt")) {
             return null
         }
-        return AliKotlinInspectionInvoker.invokeInspection(file, manager, rule, isOnTheFly)
+        return ZhenaiKotlinInspectionInvoker.invokeInspection(file, manager, rule, isOnTheFly)
     }
 
     override fun getStaticDescription(): String? {
@@ -89,7 +88,7 @@ class AliKotlinInspection(private val ruleName: String) : LocalInspectionTool(),
 
     @Nls
     override fun getGroupDisplayName(): String {
-        return AliBaseInspection.GROUP_NAME1
+        return ZhenaiBaseInspection.GROUP_NAME1
     }
 
     override fun isEnabledByDefault(): Boolean {

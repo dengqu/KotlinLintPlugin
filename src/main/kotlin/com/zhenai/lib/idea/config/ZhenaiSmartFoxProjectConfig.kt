@@ -27,11 +27,9 @@ import com.intellij.util.xmlb.XmlSerializerUtil
  * @author caikang
  * @date 2017/03/01
  */
-@State(name = "SmartFoxProjectConfig",
-        storages = arrayOf(com.intellij.openapi.components.Storage(
-                file = "${StoragePathMacros.WORKSPACE_FILE}/zhenai_smartfox_info.xml")))
-class SmartFoxProjectConfig : PersistentStateComponent<SmartFoxProjectConfig> {
-    override fun loadState(state: SmartFoxProjectConfig) {
+@State(name = "ZhenaiSmartFoxProjectConfig", storages = [com.intellij.openapi.components.Storage(file = "zhenai_smartfox_info.xml")])
+class ZhenaiSmartFoxProjectConfig : PersistentStateComponent<ZhenaiSmartFoxProjectConfig> {
+    override fun loadState(state: ZhenaiSmartFoxProjectConfig) {
         if (state == null) {
             return
         }
@@ -42,7 +40,7 @@ class SmartFoxProjectConfig : PersistentStateComponent<SmartFoxProjectConfig> {
 
     var projectInspectionClosed = false
 
-    override fun getState(): SmartFoxProjectConfig? {
+    override fun getState(): ZhenaiSmartFoxProjectConfig? {
         return this
     }
 
