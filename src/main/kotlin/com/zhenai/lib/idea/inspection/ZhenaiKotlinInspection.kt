@@ -49,7 +49,7 @@ class ZhenaiKotlinInspection(private val ruleName: String) : LocalInspectionTool
     private val rule: SIssue
 
     init {
-        rule = CheckList.getSlangCheck(ruleName).getSIssue()
+        rule = CheckList.getSlangCheck(ruleName)!!.getSIssue()
         displayName = rule.name
         staticDescription = rule.des
         defaultLevel = HighlightDisplayLevels.MAJOR

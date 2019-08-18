@@ -10,7 +10,6 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/checks" />
-            <option value="$PROJECT_DIR$/checks-kotlin" />
             <option value="$PROJECT_DIR$/client" />
             <option value="$PROJECT_DIR$/core" />
           </set>

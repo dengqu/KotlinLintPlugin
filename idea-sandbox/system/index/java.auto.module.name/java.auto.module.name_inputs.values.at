@@ -1,65 +1,24 @@
-/Header Record For PersistentHashMapValueStoragecharsets	deploycldrdatadnsns
-jaccessjfxrt
-localedata
-nashornsunecsunjce.provider	sunpkcs11zipfs	javawsjcejfr	jfxswtjssemanagement.agent	plugin	resourcesrt
-ant.javafxdt	javafx.mxjconsolepackager	sa.jditools	runner
-classes	common	commonkotlin.stdlib.commonkotlin.stdlib.commonsupport.annotationssupport.annotationsanimated.vector.drawable
-classessupport.compat
-classes	viewmodel
-classes
-javawriter
-javawritersupport.vector.drawable
-classessupport.core.ui
-classessupport.core.utils
-classes
-classesannotationsannotations	jsr305espresso.core
-classesjavax.inject.1.sourcesjavax.injectsupport.fragment
-classesjunitjunit
-runtime
-classeshamcrest.corehamcrest.core
-monitor
-classesappcompat.v7
-classesespresso.idling.resource
-classeslivedata.core
-classeshamcrest.libraryhamcrest.libraryhamcrest.integrationhamcrest.integrationkotlin.stdlibkotlin.stdlib	common	commonkotlin.stdlib.jdk7kotlin.stdlib.jdk7constraint.layout.solverkxml2kxml2
-runtime
-classes	common	commonkotlin.stdlib.commonkotlin.stdlib.commonsupport.annotationssupport.annotations
-javawriter
-javawriterannotationsannotations	jsr305javax.inject.1.sourcesjavax.injectjunitjunithamcrest.corehamcrest.corehamcrest.libraryhamcrest.libraryhamcrest.integrationhamcrest.integrationkotlin.stdlibkotlin.stdlib	common	commonkotlin.stdlib.jdk7kotlin.stdlib.jdk7constraint.layout.solverkxml2kxml2
+/Header Record For PersistentHashMapValueStorage
+android
 androidsupport.vector.drawable
 classessupport.core.utils
-classes
 classeslivedata.core
 classes
 runtime
-classes	viewmodel
+classes	common	commonkotlin.stdlib.commonkotlin.stdlib.commonsupport.annotationssupport.annotations	viewmodel
 classesespresso.idling.resource
 classes	runner
+classes
 runtime
-classesanimated.vector.drawable
+classes
+javawriter
+javawriteranimated.vector.drawable
 classesespresso.core
 classes
-classessupport.core.ui
-classessupport.compat
+classesannotationsannotations	jsr305javax.inject.1.sourcesjavax.injectjunitjunitsupport.core.ui
+classeshamcrest.corehamcrest.coresupport.compat
 classessupport.fragment
 classes
 monitor
-classesappcompat.v7
-classes
-android
-classes
-classes
-classes
-classes
-classes
-classes
-classes
-classes
-classes
-classes
-classes
-classes
-classes
-classes
-classes
-classes
+classeshamcrest.libraryhamcrest.libraryhamcrest.integrationhamcrest.integrationappcompat.v7
+classeskotlin.stdlibkotlin.stdlib	common	commonkotlin.stdlib.jdk7kotlin.stdlib.jdk7constraint.layout.solverkxml2kxml2
