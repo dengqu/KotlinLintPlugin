@@ -48,6 +48,7 @@ public class CheckList {
                 new EmptyBlockCheck(),
                 new DuplicateBranchCheck(),
                 new LazyCheck(),
+                new ArrayPrimitiveCheck(),
                 new EmptyFunctionCheck());
     }
 

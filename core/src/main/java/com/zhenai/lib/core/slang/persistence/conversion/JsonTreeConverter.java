@@ -267,7 +267,7 @@ public final class JsonTreeConverter {
 
       (ctx, json) -> new IdentifierTreeImpl(
         ctx.metaData(json),
-        ctx.fieldToString(json, NAME)));
+        ctx.fieldToString(json, NAME),null));
 
     register(IfTreeImpl.class,
 

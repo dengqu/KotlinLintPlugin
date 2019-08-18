@@ -11,8 +11,8 @@
         </component>
     </project-components>
     <actions>
-        <action class="com.zhenai.lib.idea.action.ZhenaiInspectionAction" id="AliP3CInspectionAction"
-                popup="true" text="编码规约扫描" icon="P3cIcons.ANALYSIS_ACTION">
+        <action class="com.zhenai.lib.idea.action.ZhenaiInspectionAction" id="ZhenaiInspectionAction"
+                popup="true" text="珍爱编码规约扫描" icon="P3cIcons.ANALYSIS_ACTION">
             <keyboard-shortcut keymap="$default"
                                first-keystroke="shift ctrl alt J"/>
             <add-to-group group-id="MainToolBar" anchor="last"/>
@@ -20,16 +20,16 @@
             <add-to-group group-id="ChangesViewPopupMenu" anchor="last"/>
             <add-to-group group-id="EditorPopupMenu" anchor="last"/>
         </action>
-        <action class="com.zhenai.lib.idea.action.ToggleProjectInspectionAction" id="ToggleProjectInspectionAction"
-                popup="true" text="关闭检测" icon="P3cIcons.PROJECT_INSPECTION_OFF">
+        <action class="com.zhenai.lib.idea.action.ToggleProjectInspectionAction" id="ZhenaiToggleProjectInspectionAction"
+                popup="true" text="关闭珍爱编码检测" icon="P3cIcons.PROJECT_INSPECTION_OFF">
             <add-to-group group-id="MainToolBar" anchor="last"/>
             <add-to-group group-id="ProjectViewPopupMenu" anchor="last"/>
             <add-to-group group-id="ChangesViewPopupMenu" anchor="last"/>
             <add-to-group group-id="EditorPopupMenu" anchor="last"/>
         </action>
         <group popup="true" id="com.zhenai.lib.analytics.action_group" text="编码规约" icon="P3cIcons.ALIBABA">
-            <reference ref="AliP3CInspectionAction"/>
-            <reference ref="ToggleProjectInspectionAction"/>
+            <reference ref="ZhenaiInspectionAction"/>
+            <reference ref="ZhenaiToggleProjectInspectionAction"/>
             <add-to-group group-id="ToolsMenu" anchor="last"/>
         </group>
     </actions>
@@ -40,10 +40,10 @@
     </extensionPoints>
     <extensions defaultExtensionNs="com.intellij">
         <applicationService serviceImplementation="com.zhenai.lib.idea.config.ZhenaiConfig"/>
-        <projectService serviceImplementation="com.zhenai.lib.idea.config.SmartFoxProjectConfig"/>
+        <projectService serviceImplementation="com.zhenai.lib.idea.config.ZhenaiSmartFoxProjectConfig"/>
         <checkinHandlerFactory implementation="com.zhenai.lib.idea.vcs.AliCodeAnalysisCheckinHandlerFactory"
                                order="first"/>
-        <inspectionToolProvider implementation="com.zhenai.lib.idea.inspection.AliLocalInspectionToolProvider"/>
+        <inspectionToolProvider implementation="com.zhenai.lib.idea.inspection.ZhenaiLocalInspectionToolProvider"/>
     </extensions>
 
 </idea-plugin>

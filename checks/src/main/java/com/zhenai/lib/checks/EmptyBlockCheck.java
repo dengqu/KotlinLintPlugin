@@ -25,6 +25,7 @@ import com.zhenai.lib.checks.api.InitContext;
 import com.zhenai.lib.core.slang.api.*;
 
 import javax.annotation.Nullable;
+import java.util.function.BiConsumer;
 
 public class EmptyBlockCheck implements ICheck {
     private static SIssue sIssue = new SIssue.SIssueBuilder()
@@ -46,6 +47,7 @@ public class EmptyBlockCheck implements ICheck {
                 checkComments(ctx, matchTree);
             }
         });
+
     }
 
     @Override

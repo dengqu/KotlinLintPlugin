@@ -9,6 +9,12 @@
     ]]></description>
     <change-notes>
         <![CDATA[
+      1.0.9
+      <ul>
+      add Lay Check rule<br>
+      add TooComplexExpression Check rule<br>
+      fix bugs<br>
+      </ul>
       1.0.8
       <ul>
       add Log Check rule<br>

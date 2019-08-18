@@ -81,10 +81,10 @@ class ZhenaiLocalInspectionToolProvider : InspectionToolProvider {
             try {
                 for (ruleInfo in CheckList.allChecks()) {
                     val cc = pool.get(DelegateKotlinInspection::class.java.name)
-                    cc.name = ruleInfo.sIssue.issue_id + "Inspection"
+                    cc.name = ruleInfo.getSIssue().issue_id + "Inspection"
                     val ctField = cc.getField("ruleName")
                     cc.removeField(ctField)
-                    val value = "\"" + ruleInfo.sIssue.name + "\""
+                    val value = "\"" + ruleInfo.getSIssue().name + "\""
                     val newField = CtField.make("private String ruleName = $value;", cc)
                     cc.addField(newField, value)
                     CLASS_LIST.add(cc.toClass())

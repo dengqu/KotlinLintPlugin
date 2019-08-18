@@ -6,9 +6,9 @@
     <entry key="com.alibaba.p3c.action.switch_language.text.cur_en">切换语言至中文</entry>
     <entry key="com.alibaba.p3c.action.switch_language.text.success">
         <![CDATA[切换语言成功，<a href="restart">重启</a>后生效]]></entry>
-    <entry key="com.alibaba.p3c.idea.action.AliInspectionAction.text">编码规约扫描</entry>
-    <entry key="com.alibaba.p3c.idea.action.ToggleProjectInspectionAction.text.close">关闭实时检测功能</entry>
-    <entry key="com.alibaba.p3c.idea.action.ToggleProjectInspectionAction.text.open">打开实时检测功能</entry>
+    <entry key="com.alibaba.p3c.idea.action.AliInspectionAction.text">珍爱编码规约扫描</entry>
+    <entry key="com.zhenai.lib.idea.action.ToggleProjectInspectionAction.text.close">关闭珍爱实时检测功能</entry>
+    <entry key="com.zhenai.lib.idea.action.ToggleProjectInspectionAction.text.open">打开珍爱实时检测功能</entry>
     <entry key="com.alibaba.p3c.idea.quickfix.delete_$">删除开头的 $ 或者 _</entry>
     <entry key="com.alibaba.p3c.idea.quickfix.generate.author">添加/提取 @author</entry>
     <entry key="com.alibaba.p3c.idea.quickfix.field.to.upperCaseWithUnderscore">修正为以下划线分隔大写模式</entry>

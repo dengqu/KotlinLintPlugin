@@ -38,7 +38,9 @@ public class KotlinNativeKind implements NativeKind {
 
     public KotlinNativeKind(PsiElement element, TextRange textRange) {
         this(element.getClass(), textRange);
+        originalObject = element;
     }
+
 
     public KotlinNativeKind(Class<? extends PsiElement> psiElementClass, TextRange textRange) {
         this.psiElementClass = psiElementClass;

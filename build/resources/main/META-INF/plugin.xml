@@ -9,6 +9,12 @@
     </description>
   <change-notes>
         
+      1.0.9
+      &lt;ul&gt;
+      add Lay Check rule&lt;br&gt;
+      add TooComplexExpression Check rule&lt;br&gt;
+      fix bugs&lt;br&gt;
+      &lt;/ul&gt;
       1.0.8
       &lt;ul&gt;
       add Log Check rule&lt;br&gt;

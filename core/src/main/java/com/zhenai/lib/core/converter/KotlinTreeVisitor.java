@@ -337,10 +337,10 @@ class KotlinTreeVisitor {
         KtTypeParameterList typeParameterList = functionElement.getTypeParameterList();
 
         if (typeElement != null) {
-            returnType = new IdentifierTreeImpl(getTreeMetaData(typeElement), typeElement.getText());
+            returnType = new IdentifierTreeImpl(getTreeMetaData(typeElement), typeElement.getText(),functionElement.getTypeReference());
         }
         if (nameIdentifier != null && name != null) {
-            identifierTree = new IdentifierTreeImpl(getTreeMetaData(nameIdentifier), name);
+            identifierTree = new IdentifierTreeImpl(getTreeMetaData(nameIdentifier), name,functionElement.getTypeReference());
         }
         if (bodyTree != null && !(bodyTree instanceof BlockTree)) {
             // FIXME are we sure we want body of function as block tree ?
@@ -423,7 +423,7 @@ class KotlinTreeVisitor {
             return createNativeTree(metaData, new KotlinNativeKind(ktProperty, metaData.textRange(), nameIdentifier.getText(), ktProperty), ktProperty);
         }
 
-        IdentifierTree identifierTree = new IdentifierTreeImpl(getTreeMetaData(nameIdentifier), nameIdentifier.getText());
+        IdentifierTree identifierTree = new IdentifierTreeImpl(getTreeMetaData(nameIdentifier), nameIdentifier.getText(),ktProperty.getTypeReference());
         Tree typeTree = createElement(ktProperty.getTypeReference());
         Tree initializerTree = createElement(ktProperty.getInitializer());
         boolean isVal = !ktProperty.isVar();
@@ -439,7 +439,7 @@ class KotlinTreeVisitor {
     }
 
     private static IdentifierTree createIdentifierTree(TreeMetaData metaData, String name) {
-        return new IdentifierTreeImpl(metaData, name);
+        return new IdentifierTreeImpl(metaData, name,null);
     }
 
     private Tree createMatchTree(TreeMetaData metaData, KtWhenExpression element) {

@@ -47,7 +47,7 @@ public class ChecksVisitor extends TreeVisitor<InputFileContext> {
         this.statistics = statistics;
         problems = new ArrayList<>();
         for (ICheck check : checks) {
-            if (check instanceof CommentedCodeCheck){
+            if (check instanceof CommentedCodeCheck) {
                 ((CommentedCodeCheck) check).setCodeVerifier(new KotlinCodeVerifier());
             }
             check.initialize(new ContextAdapter());
@@ -92,12 +92,12 @@ public class ChecksVisitor extends TreeVisitor<InputFileContext> {
 
         @Override
         public void reportIssue(TextRange textRange, SIssue issue) {
-            doReportIssue(textRange,issue);
+            doReportIssue(textRange, issue);
         }
 
         @Override
         public void reportIssue(HasTextRange textRange, SIssue issue) {
-            doReportIssue(textRange.textRange(),issue);
+            doReportIssue(textRange.textRange(), issue);
         }
 
         private void doReportIssue(@Nullable TextRange textRange, SIssue issue) {
@@ -107,6 +107,15 @@ public class ChecksVisitor extends TreeVisitor<InputFileContext> {
             problems.add(problem);
         }
 
+        @org.jetbrains.annotations.Nullable
+        @Override
+        public Tree parent() {
+            if (this.ancestors().isEmpty()) {
+                return null;
+            } else {
+                return this.ancestors().peek();
+            }
+        }
     }
 
     public class Problem {

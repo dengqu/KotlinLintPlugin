@@ -28,14 +28,20 @@ import java.util.List;
 public class IdentifierTreeImpl extends BaseTreeImpl implements IdentifierTree {
 
   private final String name;
+  private final Object typeReference;
 
-  public IdentifierTreeImpl(TreeMetaData metaData, String name) {
+  public IdentifierTreeImpl(TreeMetaData metaData, String name,Object typeReference) {
     super(metaData);
     this.name = name;
+    this.typeReference = typeReference;
   }
 
   public String name() {
     return name;
+  }
+
+  public Object getTypeReference() {
+    return typeReference;
   }
 
   @Override

@@ -76,8 +76,8 @@ public class InputFileContext extends TreeContext {
     secondaryLocations.forEach(secondary -> issue.addLocation(
       issue.newLocation()
         .on(inputFile)
-        .at(textRange(secondary.textRange))
-        .message(secondary.message == null ? "" : secondary.message)));
+        .at(textRange(secondary.getTextRange()))
+        .message(secondary.getMessage() == null ? "" : secondary.getMessage())));
 
     issue.save();
   }
