@@ -1,21 +1,24 @@
 plugins {
-    id 'java'
+    id 'org.jetbrains.kotlin.jvm'
 }
 
 group 'com.zhenai.lib'
-version '1.0-SNAPSHOT'
-
-sourceCompatibility = 1.8
+version '1.0.9'
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     compile(project(":core"))
     compile(project(":checks"))
     compile group: 'org.sonarsource.sonarqube', name: 'sonar-plugin-api', version: '7.3'
+}
 
-
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
 }

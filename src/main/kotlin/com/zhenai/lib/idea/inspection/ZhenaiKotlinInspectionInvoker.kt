@@ -15,6 +15,7 @@ import com.intellij.psi.PsiFile
 import com.intellij.psi.PsiManager
 import com.zhenai.lib.core.slang.api.SIssue
 import com.zhenai.lib.checks.CheckList
+import com.zhenai.lib.checks.api.ICheck
 import com.zhenai.lib.client.ChecksVisitor
 import com.zhenai.lib.client.InputFileContext
 import org.sonar.api.internal.google.common.collect.Lists
@@ -36,9 +37,9 @@ class ZhenaiKotlinInspectionInvoker(
         Thread.currentThread().contextClassLoader = javaClass.classLoader
         val start = System.currentTimeMillis()
         var tree = KotlinConverter().parse(psiFile?.text!!)
-        var checksVisitor = ChecksVisitor(listOf(CheckList.getSlangCheck(rule.name)), null)
+        var checksVisitor = ChecksVisitor(listOf(CheckList.getSlangCheck(rule.name)) as List<ICheck>, null)
         checksVisitor.scan(InputFileContext(null, null), tree)
-        problems = checksVisitor.problems
+        problems = checksVisitor.getProblems()
         logger.debug(
             "elapsed ${System.currentTimeMillis() - start}ms to" +
                     " to apply rule ${rule.name} for file ${psiFile.virtualFile.canonicalPath}"
