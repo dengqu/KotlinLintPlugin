@@ -1,4 +1,4 @@
-package com.zhenai.lib.checks
+package com.zhenai.lib.checks.other
 
 import com.zhenai.lib.checks.api.ICheck
 import com.zhenai.lib.checks.api.InitContext
@@ -9,15 +9,15 @@ import com.zhenai.lib.core.slang.impl.IdentifierTreeImpl
 import com.zhenai.lib.core.slang.impl.NativeTreeImpl
 import java.util.function.BiConsumer
 
-class ToastCheck:ICheck{
+class UseLogCheck : ICheck {
     private val sIssue = SIssue.SIssueBuilder()
-        .issueId("ToastCheck")
-        .name("Toast规范使用")
-        .des("请使用我们团队的Toast工具类").build()
+        .issueId("UseLogCheck")
+        .name("Log 规范使用")
+        .des("请使用我们团队统一的LogUtils").build()
 
     override fun initialize(init: InitContext) {
-        init.register(NativeTree::class.java, BiConsumer{ ctx, tree ->
-            if (isSystemToast(tree)) {
+        init.register(NativeTree::class.java, BiConsumer { ctx, tree ->
+            if (isSystemLog(tree)) {
                 ctx.reportIssue(tree, sIssue)
             }
         })
@@ -27,7 +27,7 @@ class ToastCheck:ICheck{
         return sIssue
     }
 
-    private fun isSystemToast(tree: NativeTree?): Boolean {
+    private fun isSystemLog(tree: NativeTree?): Boolean {
         if (tree == null) {
             return false
         }
@@ -43,7 +43,7 @@ class ToastCheck:ICheck{
         var nativeLog = false
 
         if (tree.children()[0] is IdentifierTreeImpl) {
-            if ((tree.children()[0] as IdentifierTreeImpl).name() == "Toast") {
+            if ((tree.children()[0] as IdentifierTreeImpl).name() == "Log") {
                 nativeLog = true
             }
         }
@@ -52,7 +52,10 @@ class ToastCheck:ICheck{
 
         if (tree.children()[1] is NativeTreeImpl) {
             if (tree.children()[1].children() != null && tree.children()[1].children().size >= 2 && tree.children()[1].children()[0] is IdentifierTreeImpl) {
-                nativeMethod = (tree.children()[1].children()[0] as IdentifierTreeImpl).name() == "makeText"
+                nativeMethod = (tree.children()[1].children()[0] as IdentifierTreeImpl).name() == "i" ||
+                        (tree.children()[1].children()[0] as IdentifierTreeImpl).name() == "d" ||
+                        (tree.children()[1].children()[0] as IdentifierTreeImpl).name() == "e" ||
+                        (tree.children()[1].children()[0] as IdentifierTreeImpl).name() == "v"
             }
         }
         return nativeLog && nativeMethod

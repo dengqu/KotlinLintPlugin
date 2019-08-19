@@ -1,11 +1,10 @@
-package com.zhenai.lib.checks
+package com.zhenai.lib.checks.other
 
 import com.zhenai.lib.checks.api.CheckContext
 import com.zhenai.lib.checks.api.ICheck
 import com.zhenai.lib.checks.api.InitContext
 import com.zhenai.lib.core.slang.api.*
 import java.util.function.BiConsumer
-import java.util.function.Predicate
 import java.util.regex.Pattern
 
 class VariableAndParameterNameCheck:ICheck{

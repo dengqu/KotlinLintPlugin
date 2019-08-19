@@ -7,9 +7,13 @@ import com.zhenai.lib.checks.comments.InterfaceMethodCommentCheck
 import com.zhenai.lib.checks.complexity.*
 import com.zhenai.lib.checks.empty.EmptyBlockCheck
 import com.zhenai.lib.checks.empty.EmptyFunctionCheck
+import com.zhenai.lib.checks.other.*
 import com.zhenai.lib.checks.performance.ArrayPrimitiveCheck
 import com.zhenai.lib.checks.performance.LazyCheck
 import com.zhenai.lib.checks.performance.ObjectDeclarationCheck
+import com.zhenai.lib.checks.unuse.UnusedFunctionParameterCheck
+import com.zhenai.lib.checks.unuse.UnusedLocalVariableCheck
+import com.zhenai.lib.checks.unuse.UnusedPrivateMethodCheck
 import java.util.*
 
 class CheckList {

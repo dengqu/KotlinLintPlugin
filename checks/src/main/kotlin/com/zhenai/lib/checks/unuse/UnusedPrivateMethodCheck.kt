@@ -1,4 +1,4 @@
-package com.zhenai.lib.checks
+package com.zhenai.lib.checks.unuse
 
 import com.zhenai.lib.checks.api.ICheck
 import com.zhenai.lib.checks.api.InitContext
@@ -11,7 +11,6 @@ import com.zhenai.lib.core.slang.utils.SyntacticEquivalence
 import com.zhenai.lib.core.slang.utils.SyntacticEquivalence.getUniqueIdentifier
 import java.util.*
 import java.util.function.BiConsumer
-import java.util.function.Predicate
 import java.util.function.Supplier
 import java.util.stream.Collectors
 

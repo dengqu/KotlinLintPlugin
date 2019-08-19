@@ -1,4 +1,4 @@
-package com.zhenai.lib.checks
+package com.zhenai.lib.checks.other
 
 import com.zhenai.lib.checks.api.ICheck
 import com.zhenai.lib.checks.api.InitContext
