@@ -15,8 +15,8 @@ import java.util.function.BiConsumer
 class ArrayPrimitiveCheck : ICheck {
     private val sIssue = SIssue.SIssueBuilder()
         .issueId("ArrayPrimitiveCheck")
-        .name("ArrayPrimitiveCheck")
-        .des("ArrayPrimitiveCheck").build()
+        .name("使用数组导致隐含装箱拆箱。首选使用Kotlin专用阵列实例。")
+        .des("Kotlin有专门的数组来表示原始类型而不需要装箱开销，例如IntArray，ByteArray等等。").build()
 
     private val primitiveTypes = hashSetOf(
         "Int",

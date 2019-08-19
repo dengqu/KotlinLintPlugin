@@ -10,6 +10,7 @@ import com.zhenai.lib.checks.empty.EmptyFunctionCheck
 import com.zhenai.lib.checks.name.VariableAndParameterNameCheck
 import com.zhenai.lib.checks.other.*
 import com.zhenai.lib.checks.performance.ArrayPrimitiveCheck
+import com.zhenai.lib.checks.performance.ForEachOnRangeCheck
 import com.zhenai.lib.checks.performance.LazyCheck
 import com.zhenai.lib.checks.performance.ObjectDeclarationCheck
 import com.zhenai.lib.checks.unuse.UnusedFunctionParameterCheck
@@ -43,6 +44,7 @@ class CheckList {
                 EmptyBlockCheck(),
                 DuplicateBranchCheck(),
                 LazyCheck(),
+                ForEachOnRangeCheck(),
                 VariableAndParameterNameCheck(),
                 ArrayPrimitiveCheck(),
                 EmptyFunctionCheck()
