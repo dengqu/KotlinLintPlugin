@@ -6,7 +6,7 @@ import java.util.ArrayList
 import java.util.Deque
 import java.util.function.BiConsumer
 
-import com.zhenai.lib.checks.comments.CommentedCodeCheck
+import com.zhenai.lib.checks.unuse.CommentedCodeCheck
 import com.zhenai.lib.core.slang.api.HasTextRange
 import com.zhenai.lib.core.slang.api.SIssue
 import com.zhenai.lib.core.slang.api.TextRange

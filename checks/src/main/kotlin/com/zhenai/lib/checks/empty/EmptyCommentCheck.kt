@@ -1,4 +1,4 @@
-package com.zhenai.lib.checks.comments
+package com.zhenai.lib.checks.empty
 
 import com.zhenai.lib.checks.api.ICheck
 import com.zhenai.lib.checks.api.InitContext
