@@ -22,6 +22,8 @@ package com.zhenai.lib.core.converter;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
+import java.util.regex.Pattern;
+
 import org.jetbrains.kotlin.com.intellij.psi.PsiElement;
 import org.jetbrains.kotlin.com.intellij.psi.PsiFile;
 import org.jetbrains.kotlin.psi.KtBinaryExpression;
@@ -41,90 +43,98 @@ import com.zhenai.lib.core.slang.api.CodeVerifier;
 import com.zhenai.lib.core.slang.api.ParseException;
 
 public class KotlinCodeVerifier implements CodeVerifier {
-  private static final List<String> KDOC_TAGS = Arrays.asList(
-    "@param", "@name", "@return", "@constructor", "@receiver", "@property", "@throws",
-    "@exception", "@sample", "@see", "@author", "@since", "@suppress");
+    private static final List<String> KDOC_TAGS = Arrays.asList(
+            "@param", "@name", "@return", "@constructor", "@receiver", "@property", "@throws",
+            "@exception", "@sample", "@see", "@author", "@since", "@suppress");
+    private static Pattern todoPattern = Pattern.compile("[\\u4e00-\\u9fa5]");
 
-  @Override
-  public boolean containsCode(String content) {
-    int words = content.trim().split("\\w+").length;
-    if (words < 2 || isKDoc(content)) {
-      return false;
+    @Override
+    public boolean containsCode(String content) {
+        int words = content.trim().split("\\w+").length;
+        if (words < 2 || isKDoc(content)) {
+            return false;
+        }
+        try {
+            String wrappedContent = "fun function () { " + content + " }";
+            KotlinConverter.KotlinTree kotlinTree = new KotlinConverter.KotlinTree(wrappedContent);
+            return !isSimpleExpression(kotlinTree.psiFile);
+        } catch (ParseException e) {
+            // do nothing
+        }
+        return false;
     }
-    try {
-      String wrappedContent = "fun function () { " + content + " }";
-      KotlinConverter.KotlinTree kotlinTree = new KotlinConverter.KotlinTree(wrappedContent);
-      return !isSimpleExpression(kotlinTree.psiFile);
-    } catch (ParseException e) {
-      // do nothing
-    }
-    return false;
-  }
 
-  private static boolean isKDoc(String content) {
-    return KDOC_TAGS.stream().anyMatch(tag -> content.toLowerCase(Locale.ENGLISH).contains(tag));
-  }
-
-  // Filter natural language sentences parsed
-  // as literals, infix notations or single expressions
-  private static boolean isSimpleExpression(PsiFile tree) {
-    // Since kotlin 1.3, compiler adds 2 hidden elements in the hierarchy: a `KtScript`, having a `KtBlockExpression`
-    PsiElement content = getLastChild(getLastChild(getLastChild(tree.getLastChild())));
-    if (content == null) {
-      throw new IllegalStateException("AST is missing expected elements");
+    private static boolean isKDoc(String content) {
+        return KDOC_TAGS.stream().anyMatch(tag -> content.toLowerCase(Locale.ENGLISH).contains(tag));
     }
-    PsiElement[] elements = content.getChildren();
-    return Arrays.stream(elements).allMatch(element ->
-      element instanceof KtNameReferenceExpression ||
-        element instanceof KtCollectionLiteralExpression ||
-        element instanceof KtConstantExpression ||
-        element instanceof KtIsExpression ||
-        element instanceof KtThisExpression ||
-        element instanceof KtStringTemplateExpression ||
-        isInfixNotation(element))
-      || isSingleExpression(elements);
-  }
 
-  private static PsiElement getLastChild( PsiElement tree) {
-    if (tree != null) {
-      return tree.getLastChild();
+    private static boolean isChinese(String content) {
+        if (todoPattern.matcher(content).find()) {
+            return true;
+        }
+        return false;
     }
-    return null;
-  }
 
-  private static PsiElement[] removeParenthesizedExpressions(PsiElement[] elements) {
-    return Arrays.stream(elements)
-      .filter(element -> !(element instanceof KtParenthesizedExpression))
-      .toArray(PsiElement[]::new);
-  }
+    // Filter natural language sentences parsed
+    // as literals, infix notations or single expressions
+    private static boolean isSimpleExpression(PsiFile tree) {
+        // Since kotlin 1.3, compiler adds 2 hidden elements in the hierarchy: a `KtScript`, having a `KtBlockExpression`
+        PsiElement content = getLastChild(getLastChild(getLastChild(tree.getLastChild())));
+        if (content == null) {
+            throw new IllegalStateException("AST is missing expected elements");
+        }
+        PsiElement[] elements = content.getChildren();
+        return Arrays.stream(elements).allMatch(element ->
+                element instanceof KtNameReferenceExpression ||
+                        element instanceof KtCollectionLiteralExpression ||
+                        element instanceof KtConstantExpression ||
+                        element instanceof KtIsExpression ||
+                        element instanceof KtThisExpression ||
+                        element instanceof KtStringTemplateExpression ||
+                        isInfixNotation(element))
+                || isSingleExpression(elements);
+    }
 
-  // Check for strings parsed as a single expression
-  // e.g. "this is fine" as IsExpression, "-- foo" as InfixExpression
-  private static boolean isSingleExpression(PsiElement [] elements) {
-    PsiElement [] elementsWithoutParenthesis = removeParenthesizedExpressions(elements);
-    if (elementsWithoutParenthesis.length == 0) {
-      return true;
+    private static PsiElement getLastChild(PsiElement tree) {
+        if (tree != null) {
+            return tree.getLastChild();
+        }
+        return null;
     }
-    if (elementsWithoutParenthesis.length > 1) {
-      return false;
-    }
-    PsiElement element = elementsWithoutParenthesis[0];
-    return element instanceof KtPrefixExpression ||
-      element instanceof KtPostfixExpression ||
-      element instanceof KtBinaryExpression ||
-      element instanceof KtBinaryExpressionWithTypeRHS ||
-      element instanceof KtDotQualifiedExpression;
-  }
 
-  // Kotlin supports infix function invocation like `1 shl 2` instead of `1.shl(2)`
-  // A regular three words sentence would be parsed as infix notation by Kotlin
-  private static boolean isInfixNotation(PsiElement element) {
-    if (element instanceof KtBinaryExpression) {
-      PsiElement[] binaryExprChildren = element.getChildren();
-      return binaryExprChildren.length == 3 &&
-        binaryExprChildren[1] instanceof KtOperationReferenceExpression;
+    private static PsiElement[] removeParenthesizedExpressions(PsiElement[] elements) {
+        return Arrays.stream(elements)
+                .filter(element -> !(element instanceof KtParenthesizedExpression))
+                .toArray(PsiElement[]::new);
     }
-    return false;
-  }
+
+    // Check for strings parsed as a single expression
+    // e.g. "this is fine" as IsExpression, "-- foo" as InfixExpression
+    private static boolean isSingleExpression(PsiElement[] elements) {
+        PsiElement[] elementsWithoutParenthesis = removeParenthesizedExpressions(elements);
+        if (elementsWithoutParenthesis.length == 0) {
+            return true;
+        }
+        if (elementsWithoutParenthesis.length > 1) {
+            return false;
+        }
+        PsiElement element = elementsWithoutParenthesis[0];
+        return element instanceof KtPrefixExpression ||
+                element instanceof KtPostfixExpression ||
+                element instanceof KtBinaryExpression ||
+                element instanceof KtBinaryExpressionWithTypeRHS ||
+                element instanceof KtDotQualifiedExpression;
+    }
+
+    // Kotlin supports infix function invocation like `1 shl 2` instead of `1.shl(2)`
+    // A regular three words sentence would be parsed as infix notation by Kotlin
+    private static boolean isInfixNotation(PsiElement element) {
+        if (element instanceof KtBinaryExpression) {
+            PsiElement[] binaryExprChildren = element.getChildren();
+            return binaryExprChildren.length == 3 &&
+                    binaryExprChildren[1] instanceof KtOperationReferenceExpression;
+        }
+        return false;
+    }
 
 }

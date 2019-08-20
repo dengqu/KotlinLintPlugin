@@ -21,6 +21,8 @@ import com.zhenai.lib.client.InputFileContext
 import org.sonar.api.internal.google.common.collect.Lists
 import java.util.concurrent.TimeUnit
 import com.zhenai.lib.core.converter.KotlinConverter
+import com.zhenai.lib.core.slang.api.Tree
+
 /**
  * @author dengqu
  * @date 2016/12/13
@@ -36,14 +38,16 @@ class ZhenaiKotlinInspectionInvoker(
     fun doInvoke() {
         Thread.currentThread().contextClassLoader = javaClass.classLoader
         val start = System.currentTimeMillis()
-        var tree = KotlinConverter().parse(psiFile?.text!!)
-        var checksVisitor = ChecksVisitor(listOf(CheckList.getSlangCheck(rule.name)) as List<ICheck>, null)
-        checksVisitor.scan(InputFileContext(null, null), tree)
-        problems = checksVisitor.getProblems()
-        logger.debug(
-            "elapsed ${System.currentTimeMillis() - start}ms to" +
-                    " to apply rule ${rule.name} for file ${psiFile.virtualFile.canonicalPath}"
-        )
+        var tree: Tree? = KotlinConverter().parse(psiFile?.text!!)
+        tree?.let {
+            var checksVisitor = ChecksVisitor(listOf(CheckList.getSlangCheck(rule.name)) as List<ICheck>, null)
+            checksVisitor.scan(InputFileContext(null, null), tree)
+            problems = checksVisitor.getProblems()
+            logger.debug(
+                "elapsed ${System.currentTimeMillis() - start}ms to" +
+                        " to apply rule ${rule.name} for file ${psiFile.virtualFile.canonicalPath}"
+            )
+        }
     }
 
     fun getRuleProblems(isOnTheFly: Boolean): Array<ProblemDescriptor>? {

@@ -21,6 +21,7 @@ package com.zhenai.lib.core.converter;
 
 import java.util.Arrays;
 import java.util.stream.Stream;
+
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.kotlin.cli.common.script.CliScriptDefinitionProvider;
 import org.jetbrains.kotlin.com.intellij.core.CoreASTFactory;
@@ -64,92 +65,98 @@ import com.zhenai.lib.core.slang.api.Tree;
 import com.zhenai.lib.core.slang.impl.TreeMetaDataProvider;
 
 public class KotlinConverter implements ASTConverter {
-  private static final PsiFileFactory psiFileFactory = psiFileFactory();
+    private static final PsiFileFactory psiFileFactory = psiFileFactory();
 
-  @Override
-  public Tree parse(String content) {
-    KotlinTree kotlinTree = new KotlinTree(content);
-    KotlinTreeVisitor kotlinTreeVisitor = new KotlinTreeVisitor(kotlinTree.psiFile, kotlinTree.metaDataProvider);
-    return kotlinTreeVisitor.getSLangAST();
-  }
-
-  private static Stream<PsiElement> descendants(PsiElement element) {
-    return Arrays.stream(element.getChildren()).flatMap(
-      tree -> Stream.concat(Stream.of(tree), descendants(tree)));
-  }
-
-  /**
-   * 将kotlin 文件转成PSI
-   * @return
-   */
-  private static PsiFileFactory psiFileFactory() {
-    CoreFileTypeRegistry fileTypeRegistry = new CoreFileTypeRegistry();
-    fileTypeRegistry.registerFileType(KotlinFileType.INSTANCE, "kt");
-    FileTypeRegistry.ourInstanceGetter = new StaticGetter<>(fileTypeRegistry);
-
-    Disposable disposable = Disposer.newDisposable();
-
-    MockApplication application = new MockApplication(disposable);
-    FileDocumentManager fileDocMgr = new MockFileDocumentManagerImpl(DocumentImpl::new, null);
-    application.registerService(FileDocumentManager.class, fileDocMgr);
-    PsiBuilderFactoryImpl psiBuilderFactory = new PsiBuilderFactoryImpl();
-    application.registerService(PsiBuilderFactory.class, psiBuilderFactory);
-    application.registerService(ProgressManager.class, new CoreProgressManager());
-    ApplicationManager.setApplication(application, FileTypeRegistry.ourInstanceGetter, disposable);
-
-    Extensions.getArea(null).registerExtensionPoint(MetaLanguage.EP_NAME.getName(), MetaLanguage.class.getName(), ExtensionPoint.Kind.INTERFACE);
-    Extensions.registerAreaClass("IDEA_PROJECT", null);
-
-    MockProject project = new MockProject(null, disposable);
-    project.registerService(ScriptDefinitionProvider.class, CliScriptDefinitionProvider.class);
-
-    LanguageParserDefinitions.INSTANCE.addExplicitExtension(KotlinLanguage.INSTANCE, new KotlinParserDefinition());
-    CoreASTFactory astFactory = new CoreASTFactory();
-    LanguageASTFactory.INSTANCE.addExplicitExtension(KotlinLanguage.INSTANCE, astFactory);
-    LanguageASTFactory.INSTANCE.addExplicitExtension(Language.ANY, astFactory);
-
-    PsiManager psiManager = new PsiManagerImpl(project, fileDocMgr, psiBuilderFactory, null, null, null);
-    return new PsiFileFactoryImpl(psiManager);
-  }
-
-  public static class KotlinTree {
-    final PsiFile psiFile;
-    final Document document;
-    final TreeMetaDataProvider metaDataProvider;
-
-
-    public KotlinTree(String content) {
-      psiFile = psiFileFactory.createFileFromText(KotlinLanguage.INSTANCE, normalizeEol(content));
-      try {
-        document = psiFile.getViewProvider().getDocument();
-      } catch (AssertionError e) {
-        // A KotlinLexerException may occur when attempting to read invalid files
-        throw new ParseException("Cannot correctly map AST with a null Document object");
-      }
-      CommentAndTokenVisitor commentsAndTokens = new CommentAndTokenVisitor(document);
-      psiFile.accept(commentsAndTokens);
-      metaDataProvider = new TreeMetaDataProvider(commentsAndTokens.getAllComments(), commentsAndTokens.getTokens());
-      checkParsingErrors(psiFile, document, metaDataProvider);
-
+    @Override
+    public Tree parse(String content) {
+        try {
+            KotlinTree kotlinTree = new KotlinTree(content);
+            KotlinTreeVisitor kotlinTreeVisitor = new KotlinTreeVisitor(kotlinTree.psiFile, kotlinTree.metaDataProvider);
+            return kotlinTreeVisitor.getSLangAST();
+        } catch (ParseException e) {
+            System.out.println(e);
+        }
+        return null;
     }
 
-    private static void checkParsingErrors(PsiFile psiFile, Document document, TreeMetaDataProvider metaDataProvider) {
-      descendants(psiFile)
-        .filter(element -> element instanceof PsiErrorElement)
-        .findFirst()
-        .ifPresent(element -> {
-          throw new ParseException("Cannot convert file due to syntactic errors",
-            getErrorLocation(document, metaDataProvider, element));
-        });
+    private static Stream<PsiElement> descendants(PsiElement element) {
+        return Arrays.stream(element.getChildren()).flatMap(
+                tree -> Stream.concat(Stream.of(tree), descendants(tree)));
     }
 
-    private static TextPointer getErrorLocation(Document document, TreeMetaDataProvider metaDataProvider, PsiElement element) {
-      return metaDataProvider.metaData(KotlinTextRanges.textRange(document, element)).textRange().start();
+    /**
+     * 将kotlin 文件转成PSI
+     *
+     * @return
+     */
+    private static PsiFileFactory psiFileFactory() {
+        CoreFileTypeRegistry fileTypeRegistry = new CoreFileTypeRegistry();
+        fileTypeRegistry.registerFileType(KotlinFileType.INSTANCE, "kt");
+        FileTypeRegistry.ourInstanceGetter = new StaticGetter<>(fileTypeRegistry);
+
+        Disposable disposable = Disposer.newDisposable();
+
+        MockApplication application = new MockApplication(disposable);
+        FileDocumentManager fileDocMgr = new MockFileDocumentManagerImpl(DocumentImpl::new, null);
+        application.registerService(FileDocumentManager.class, fileDocMgr);
+        PsiBuilderFactoryImpl psiBuilderFactory = new PsiBuilderFactoryImpl();
+        application.registerService(PsiBuilderFactory.class, psiBuilderFactory);
+        application.registerService(ProgressManager.class, new CoreProgressManager());
+        ApplicationManager.setApplication(application, FileTypeRegistry.ourInstanceGetter, disposable);
+
+        Extensions.getArea(null).registerExtensionPoint(MetaLanguage.EP_NAME.getName(), MetaLanguage.class.getName(), ExtensionPoint.Kind.INTERFACE);
+        Extensions.registerAreaClass("IDEA_PROJECT", null);
+
+        MockProject project = new MockProject(null, disposable);
+        project.registerService(ScriptDefinitionProvider.class, CliScriptDefinitionProvider.class);
+
+        LanguageParserDefinitions.INSTANCE.addExplicitExtension(KotlinLanguage.INSTANCE, new KotlinParserDefinition());
+        CoreASTFactory astFactory = new CoreASTFactory();
+        LanguageASTFactory.INSTANCE.addExplicitExtension(KotlinLanguage.INSTANCE, astFactory);
+        LanguageASTFactory.INSTANCE.addExplicitExtension(Language.ANY, astFactory);
+
+        PsiManager psiManager = new PsiManagerImpl(project, fileDocMgr, psiBuilderFactory, null, null, null);
+        return new PsiFileFactoryImpl(psiManager);
     }
 
-    @NotNull
-    private static String normalizeEol(String content) {
-      return content.replaceAll("\\r\\n?", "\n");
+    public static class KotlinTree {
+        final PsiFile psiFile;
+        final Document document;
+        final TreeMetaDataProvider metaDataProvider;
+
+
+        public KotlinTree(String content) {
+            psiFile = psiFileFactory.createFileFromText(KotlinLanguage.INSTANCE, normalizeEol(content));
+            try {
+                document = psiFile.getViewProvider().getDocument();
+            } catch (AssertionError e) {
+                // A KotlinLexerException may occur when attempting to read invalid files
+                throw new ParseException("Cannot correctly map AST with a null Document object");
+            }
+            CommentAndTokenVisitor commentsAndTokens = new CommentAndTokenVisitor(document);
+            psiFile.accept(commentsAndTokens);
+            metaDataProvider = new TreeMetaDataProvider(commentsAndTokens.getAllComments(), commentsAndTokens.getTokens());
+            checkParsingErrors(psiFile, document, metaDataProvider);
+
+        }
+
+        private static void checkParsingErrors(PsiFile psiFile, Document document, TreeMetaDataProvider metaDataProvider) {
+            descendants(psiFile)
+                    .filter(element -> element instanceof PsiErrorElement)
+                    .findFirst()
+                    .ifPresent(element -> {
+                        throw new ParseException("Cannot convert file due to syntactic errors",
+                                getErrorLocation(document, metaDataProvider, element));
+                    });
+        }
+
+        private static TextPointer getErrorLocation(Document document, TreeMetaDataProvider metaDataProvider, PsiElement element) {
+            return metaDataProvider.metaData(KotlinTextRanges.textRange(document, element)).textRange().start();
+        }
+
+        @NotNull
+        private static String normalizeEol(String content) {
+            return content.replaceAll("\\r\\n?", "\n");
+        }
     }
-  }
 }
