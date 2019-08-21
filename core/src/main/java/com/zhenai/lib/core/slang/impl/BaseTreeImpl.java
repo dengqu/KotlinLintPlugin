@@ -25,6 +25,15 @@ import com.zhenai.lib.core.slang.api.TreeMetaData;
 public abstract class BaseTreeImpl implements Tree {
 
   private final TreeMetaData metaData;
+  private Object originalObject;
+
+  public Object getOriginalObject() {
+    return originalObject;
+  }
+
+  public void setOriginalObject(Object originalObject) {
+    this.originalObject = originalObject;
+  }
 
   protected BaseTreeImpl(TreeMetaData metaData) {
     this.metaData = metaData;

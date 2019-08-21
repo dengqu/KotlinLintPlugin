@@ -2,6 +2,9 @@ package com.zhenai.lib.checks.api
 
 import com.zhenai.lib.core.slang.api.SIssue
 
+/**
+ * 规则统一接口
+ */
 interface ICheck {
     /**
      * 初始化
@@ -16,5 +19,6 @@ interface ICheck {
      * @return
      */
     fun getSIssue(): SIssue
+
 
 }

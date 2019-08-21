@@ -45,6 +45,7 @@ class CheckList {
                 DuplicateBranchCheck(),
                 LazyCheck(),
                 ForEachOnRangeCheck(),
+                MagicNumberCheck(),
                 VariableAndParameterNameCheck(),
                 ArrayPrimitiveCheck(),
                 EmptyFunctionCheck()

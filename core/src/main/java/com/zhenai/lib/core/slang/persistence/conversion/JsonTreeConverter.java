@@ -300,7 +300,7 @@ public final class JsonTreeConverter {
       (ctx, tree) -> ctx.newTypedObject(tree)
         .add(VALUE, tree.value()),
 
-      (ctx, json) -> new IntegerLiteralTreeImpl(
+      (ctx, json) -> new IntegerLiteralTreeImpl(null,
         ctx.metaData(json),
         ctx.fieldToString(json, VALUE)));
 
@@ -322,7 +322,7 @@ public final class JsonTreeConverter {
       (ctx, tree) -> ctx.newTypedObject(tree)
         .add(VALUE, tree.value()),
 
-      (ctx, json) -> new LiteralTreeImpl(
+      (ctx, json) -> new LiteralTreeImpl(null,
         ctx.metaData(json),
         ctx.fieldToString(json, VALUE)));
 
@@ -448,7 +448,7 @@ public final class JsonTreeConverter {
         .add(CONTENT, tree.content())
         .add(VALUE, tree.value()),
 
-      (ctx, json) -> new StringLiteralTreeImpl(
+      (ctx, json) -> new StringLiteralTreeImpl(null,
         ctx.metaData(json),
         ctx.fieldToString(json, VALUE),
         ctx.fieldToString(json, CONTENT)));

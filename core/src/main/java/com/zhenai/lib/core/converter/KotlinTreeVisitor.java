@@ -576,11 +576,11 @@ class KotlinTreeVisitor {
 
     private static Tree createLiteral(TreeMetaData metaData, PsiElement element) {
         if (isSimpleStringLiteral(element)) {
-            return new StringLiteralTreeImpl(metaData, element.getText());
+            return new StringLiteralTreeImpl(element,metaData, element.getText());
         } else if (element.getNode().getElementType() == KtNodeTypes.INTEGER_CONSTANT) {
-            return new IntegerLiteralTreeImpl(metaData, element.getText());
+            return new IntegerLiteralTreeImpl(element,metaData, element.getText());
         }
-        return new LiteralTreeImpl(metaData, element.getText());
+        return new LiteralTreeImpl(element,metaData, element.getText());
     }
 
     private Tree createNativeOperationExpression(TreeMetaData metaData, KtOperationExpression operationExpression) {

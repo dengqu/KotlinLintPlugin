@@ -24,24 +24,24 @@ import com.zhenai.lib.core.slang.api.TreeMetaData;
 
 public class StringLiteralTreeImpl extends LiteralTreeImpl implements StringLiteralTree {
 
-  private final String content;
+    private final String content;
 
-  public StringLiteralTreeImpl(TreeMetaData metaData, String value) {
-    super(metaData, value);
-    if (value.length() < 2 || value.charAt(0) != '"' || value.charAt(value.length() - 1) != '"') {
-      throw new IllegalArgumentException("Invalid string format: expected \"XXX\"");
+    public StringLiteralTreeImpl(Object object, TreeMetaData metaData, String value) {
+        super(object, metaData, value);
+        if (value.length() < 2 || value.charAt(0) != '"' || value.charAt(value.length() - 1) != '"') {
+            throw new IllegalArgumentException("Invalid string format: expected \"XXX\"");
+        }
+        content = value().substring(1, value().length() - 1);
     }
-    content = value().substring(1, value().length() - 1);
-  }
 
-  public StringLiteralTreeImpl(TreeMetaData metaData, String value, String content) {
-    super(metaData, value);
-    this.content = content;
-  }
+    public StringLiteralTreeImpl(Object object, TreeMetaData metaData, String value, String content) {
+        super(object, metaData, value);
+        this.content = content;
+    }
 
-  @Override
-  public String content() {
-    return content;
-  }
+    @Override
+    public String content() {
+        return content;
+    }
 
 }

@@ -28,21 +28,22 @@ import java.util.List;
 
 public class LiteralTreeImpl extends BaseTreeImpl implements LiteralTree {
 
-  private final String value;
+    private final String value;
 
-  public LiteralTreeImpl(TreeMetaData metaData, String value) {
-    super(metaData);
-    this.value = value;
-  }
+    public LiteralTreeImpl(Object object, TreeMetaData metaData, String value) {
+        super(metaData);
+        this.value = value;
+        setOriginalObject(object);
+    }
 
-  @Override
-  public String value() {
-    return value;
-  }
+    @Override
+    public String value() {
+        return value;
+    }
 
-  @Override
-  public List<Tree> children() {
-    return Collections.emptyList();
-  }
+    @Override
+    public List<Tree> children() {
+        return Collections.emptyList();
+    }
 
 }

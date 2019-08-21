@@ -20,6 +20,7 @@
 package com.zhenai.lib.core.slang.impl;
 
 import java.math.BigInteger;
+
 import com.zhenai.lib.core.slang.api.IntegerLiteralTree;
 import com.zhenai.lib.core.slang.api.TreeMetaData;
 
@@ -29,62 +30,62 @@ import com.zhenai.lib.core.slang.api.TreeMetaData;
  */
 public class IntegerLiteralTreeImpl extends LiteralTreeImpl implements IntegerLiteralTree {
 
-  private final Base base;
-  private final String numericPart;
+    private final Base base;
+    private final String numericPart;
 
-  public IntegerLiteralTreeImpl(TreeMetaData metaData, String stringValue) {
-    super(metaData, stringValue);
+    public IntegerLiteralTreeImpl(Object object, TreeMetaData metaData, String stringValue) {
+        super(object, metaData, stringValue);
 
-    if (hasExplicitHexadecimalPrefix(stringValue)) {
-      base = Base.HEXADECIMAL;
-      numericPart = stringValue.substring(2);
-    } else if (hasExplicitBinaryPrefix(stringValue)) {
-      base = Base.BINARY;
-      numericPart = stringValue.substring(2);
-    } else if (hasExplicitDecimalPrefix(stringValue)) {
-      base = Base.DECIMAL;
-      numericPart = stringValue.substring(2);
-    } else if (hasExplicitOctalPrefix(stringValue)) {
-      base = Base.OCTAL;
-      numericPart = stringValue.substring(2);
-    } else if (!stringValue.equals("0") && stringValue.startsWith("0")) {
-      base = Base.OCTAL;
-      numericPart = stringValue.substring(1);
-    } else {
-      base = Base.DECIMAL;
-      numericPart = stringValue;
+        if (hasExplicitHexadecimalPrefix(stringValue)) {
+            base = Base.HEXADECIMAL;
+            numericPart = stringValue.substring(2);
+        } else if (hasExplicitBinaryPrefix(stringValue)) {
+            base = Base.BINARY;
+            numericPart = stringValue.substring(2);
+        } else if (hasExplicitDecimalPrefix(stringValue)) {
+            base = Base.DECIMAL;
+            numericPart = stringValue.substring(2);
+        } else if (hasExplicitOctalPrefix(stringValue)) {
+            base = Base.OCTAL;
+            numericPart = stringValue.substring(2);
+        } else if (!stringValue.equals("0") && stringValue.startsWith("0")) {
+            base = Base.OCTAL;
+            numericPart = stringValue.substring(1);
+        } else {
+            base = Base.DECIMAL;
+            numericPart = stringValue;
+        }
     }
-  }
 
-  @Override
-  public Base getBase() {
-    return base;
-  }
+    @Override
+    public Base getBase() {
+        return base;
+    }
 
-  @Override
-  public BigInteger getIntegerValue() {
-    return new BigInteger(numericPart, base.getRadix());
-  }
+    @Override
+    public BigInteger getIntegerValue() {
+        return new BigInteger(numericPart, base.getRadix());
+    }
 
-  @Override
-  public String getNumericPart() {
-    return numericPart;
-  }
+    @Override
+    public String getNumericPart() {
+        return numericPart;
+    }
 
-  private static boolean hasExplicitOctalPrefix(String value) {
-    return value.startsWith("0o") || value.startsWith("0O");
-  }
+    private static boolean hasExplicitOctalPrefix(String value) {
+        return value.startsWith("0o") || value.startsWith("0O");
+    }
 
-  private static boolean hasExplicitHexadecimalPrefix(String value) {
-    return value.startsWith("0x") || value.startsWith("0X");
-  }
+    private static boolean hasExplicitHexadecimalPrefix(String value) {
+        return value.startsWith("0x") || value.startsWith("0X");
+    }
 
-  private static boolean hasExplicitBinaryPrefix(String value) {
-    return value.startsWith("0b") || value.startsWith("0B");
-  }
+    private static boolean hasExplicitBinaryPrefix(String value) {
+        return value.startsWith("0b") || value.startsWith("0B");
+    }
 
-  private static boolean hasExplicitDecimalPrefix(String value) {
-    return value.startsWith("0d") || value.startsWith("0D");
-  }
+    private static boolean hasExplicitDecimalPrefix(String value) {
+        return value.startsWith("0d") || value.startsWith("0D");
+    }
 
 }

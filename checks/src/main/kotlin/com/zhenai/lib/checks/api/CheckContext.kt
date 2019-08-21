@@ -6,6 +6,9 @@ import com.zhenai.lib.core.slang.api.TextRange
 import com.zhenai.lib.core.slang.api.Tree
 import java.util.*
 
+/**
+ * 规则检查上下文相关类
+ */
 interface CheckContext {
     fun ancestors(): Deque<Tree>
 
