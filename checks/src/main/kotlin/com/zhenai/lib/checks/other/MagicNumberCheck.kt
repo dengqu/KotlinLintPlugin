@@ -87,6 +87,7 @@ class MagicNumberCheck : ICheck {
 
         val number = parseAsDoubleOrNull(rawNumber) ?: return
         if (!ignoredNumbers.contains(number)) {
+            sIssue.des = expression.text +"直接使用魔法值会让人不知道该值包含得意义"
             ctx.reportIssue(tree, sIssue)
         }
     }
