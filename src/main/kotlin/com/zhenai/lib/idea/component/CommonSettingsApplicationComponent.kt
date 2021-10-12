@@ -35,7 +35,7 @@ class CommonSettingsApplicationComponent(private val p3cConfig: ZhenaiConfig) : 
         SeverityRegistrar.registerStandard(HighlightInfoTypes.CRITICAL, HighlightSeverities.CRITICAL)
         SeverityRegistrar.registerStandard(HighlightInfoTypes.MAJOR, HighlightSeverities.MAJOR)
 
-        val analyticsGroup = ActionManager.getInstance().getAction(analyticsGroupId)
+        //val analyticsGroup = ActionManager.getInstance().getAction(analyticsGroupId)
     }
 
     companion object {

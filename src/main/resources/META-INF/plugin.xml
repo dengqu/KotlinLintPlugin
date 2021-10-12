@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>com.zhenai.lib.ZhenaiLintPlugin</id>
     <name>Zhenai Android Coding Guidelines</name>
-    <version>1.0.9</version>
+    <version>1.1.0</version>
     <vendor email="scaudengqu@163.com" url="https://github.com/dengqu/ZhenaiLintPlugin.git">zhenai</vendor>
     <description><![CDATA[
       This is a can help developers to quickly find code problem<br>
@@ -9,6 +9,10 @@
     ]]></description>
     <change-notes>
         <![CDATA[
+      1.1.0
+      <ul>
+      fix bugs<br>
+      </ul>
       1.0.9
       <ul>
       add Lay Check rule<br>

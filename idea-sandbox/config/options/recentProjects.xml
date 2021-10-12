@@ -2,15 +2,9 @@
   <component name="RecentProjectsManager">
     <option name="recentPaths">
       <list>
-        <option value="$USER_HOME$/Downloads/workplace/android/AllDemo" />
+        <option value="$USER_HOME$/IntelliJIDEAProjects/MyApplication2" />
       </list>
     </option>
-    <option name="openPaths">
-      <list>
-        <option value="$USER_HOME$/Downloads/workplace/android/AllDemo" />
-      </list>
-    </option>
-    <option name="lastPath" value="$USER_HOME$/Downloads/workplace/android/AllDemo" />
     <option name="pid" value="" />
     <option name="additionalInfo">
       <map>
@@ -25,7 +19,30 @@
             </RecentProjectMetaInfo>
           </value>
         </entry>
+        <entry key="$USER_HOME$/IntelliJIDEAProjects/MyApplication">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="IC-191.7141.44" />
+              <option name="productionCode" value="IC" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1633773811599" />
+              <option name="buildTimestamp" value="1557230388393" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/IntelliJIDEAProjects/MyApplication2">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="IC-191.7141.44" />
+              <option name="productionCode" value="IC" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1633774464208" />
+              <option name="buildTimestamp" value="1557230388393" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
       </map>
     </option>
+    <option name="lastProjectLocation" value="$USER_HOME$/IntelliJIDEAProjects" />
   </component>
 </application>

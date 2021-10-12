@@ -27,7 +27,7 @@ artifacts {
     archives sourcesJar
 }
 group 'com.zhenai.lib'
-version '1.0.9'
+version '1.1.1'
 
 sourceCompatibility = 1.8
 ext.isReleaseVersion = !version.endsWith("SNAPSHOT")
@@ -51,12 +51,15 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     testCompile group: 'junit', name: 'junit', version: '4.12'
     compile group: 'org.freemarker', name: 'freemarker', version: '2.3.25-incubating'
+    compile group: 'org.javassist', name: 'javassist', version: '3.21.0-GA'
     compile(project(":client"))
 }
 
 // See https://github.com/JetBrains/gradle-intellij-plugin/
+def myPlugins = ['git4idea', 'java']
 intellij {
     version '2019.1.2'
+    //plugins = myPlugins
     pluginName plugin_name
     updateSinceUntilBuild false
     sandboxDirectory "idea-sandbox"

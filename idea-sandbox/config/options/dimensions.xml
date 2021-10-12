@@ -11,7 +11,16 @@
     <location key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog.0.0.2560.1600@192dpi" x="790" y="272" />
     <location key="deploy.picker.dialog.0.0.2560.1600@192dpi" x="690" y="288" />
     <location key="AndroidProcessChooserDialog.0.0.2560.1600@192dpi" x="1006" y="308" />
+    <location key="new project wizard.0.0.3072.1920@192dpi" x="708" y="50" />
+    <location key="WELCOME_SCREEN.0.0.3072.1920@192dpi" x="1534" y="822" />
+    <location key="#Inspections.0.0.3072.1920@192dpi" x="480" y="92" />
+    <location key="#Project_Structure.0.0.3072.1920@192dpi" x="480" y="92" />
+    <location key="SettingsEditor.0.0.3072.1920@192dpi" x="252" y="60" />
+    <location key="IDE.errors.dialog.0.0.3072.1920@192dpi" x="456" y="164" />
+    <location key="find.popup.0.0.3072.1920@192dpi" x="874" y="322" />
     <size key="find.popup.0.0.2560.1600@192dpi" width="1328" height="1230" />
     <size key="IDE.errors.dialog.0.0.2560.1600@192dpi" width="2294" height="1284" />
+    <size key="IDE.errors.dialog.0.0.3072.1920@192dpi" width="2552" height="1296" />
+    <size key="find.popup.0.0.3072.1920@192dpi" width="1324" height="1230" />
   </component>
 </application>
