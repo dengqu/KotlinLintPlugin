@@ -1,2 +1,2 @@
-# ZhenaiLintPlugin
+# KotlinLintPlugin
 lint IDE插件
